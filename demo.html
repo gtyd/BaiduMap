@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        body, html, #allmap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+    </style>
+    <script type="text/javascript" src="lib/map-baidu.mini.js"></script>
+    <title>google坐标系转百度坐标系</title>
+</head>
+<body>
+    <div id="allmap" style="display:none"></div>
+</body>
+</html>
+<script type="text/javascript" src="HackMap.js"></script>
+<script type="text/javascript">
+    //微信坐标
+    var ggPoint = {
+        x: 116.32715863448607,
+        y: 39.990912172420714
+    }
+    var rs = HackMap.Convert(ggPoint, function (data) {
+        if (data.status === 0) {
+            rs = data.points[0];
+            //console.log(rs);
+            //do ajax or submit or everything
+        }
+    });
+
+    //测距
+    var pointA = {
+        x: "106.486654",
+        y: "29.490295"
+    };
+    var pointB = {
+        x: "106.581515",
+        y: "29.615467"
+    };
+    rs = HackMap.getDistance(pointA, pointB);
+</script>
